@@ -7,8 +7,7 @@ public class BancoEvento {
 
             PreparedStatement ps = con.prepareStatement("INSERT INTO tb_evento ( nome, local, data, descricao)" +
                     " VALUES (?, ?, ?, ?)");
-
-
+            
             ps.setString(1, evento.getNome());
             ps.setString(2, evento.getLocal());
             ps.setString(3, evento.getData());
