@@ -7,7 +7,7 @@ public class Main {
     private static final BancoInscricao crudInscricao = new BancoInscricao();
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-
+        
         int opcao;
         while (true){
             System.out.println(opcoes());
@@ -25,7 +25,8 @@ public class Main {
                 5 - Pesquisar participante ( email )
                 6 - Remover participante
                 7 - Inscrever participante em evento
-                8 - Remover inscrição
+                8 - Pesquisar inscrições de participante ( nome )
+                9 - Remover inscrição
                 0 - SAIR
                 """;
     }
@@ -53,6 +54,9 @@ public class Main {
                 adicionarInscricao();
                 break;
             case 8:
+                buscarInscricaoPorNome();
+                break;
+            case 9:
                 removerInscricao();
                 break;
             case 0:
@@ -106,15 +110,22 @@ public class Main {
         crudParticipante.removerParticipante(id);
     }
     public static void adicionarInscricao(){
-        System.out.println("Digite o ID do participante que deseja adicionar:");
-        int idP = sc.nextInt();
         System.out.println("Digite o ID do evento que deseja adicionar o participante:");
         int idE = sc.nextInt();
-        crudInscricao.inscreverParticipante(idP,idE);
+        System.out.println("Digite o ID do participante que deseja adicionar:");
+        int idP = sc.nextInt();
+
+        crudInscricao.inscreverParticipante(idE,idP);
     }
     public static void removerInscricao(){
         System.out.println("Digite o ID da inscricao que deseja remover:");
         int id = sc.nextInt();
         crudInscricao.removerInscricao(id);
+    }
+
+    public static void buscarInscricaoPorNome(){
+        System.out.println("Escreva o nome do participante que deseja ver as inscrições:");
+        String nome = sc.next();
+        System.out.println(crudInscricao.visualizarInscricoesNome(nome));
     }
 }

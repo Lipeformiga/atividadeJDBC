@@ -5,6 +5,11 @@ public class Inscricao {
 
     private Participante participante;
 
+    public Inscricao(int id, Participante participante) {
+        this.id = id;
+        this.participante = participante;
+    }
+
     public int getId() {
         return id;
     }
@@ -27,5 +32,12 @@ public class Inscricao {
 
     public void setParticipante(Participante participante) {
         this.participante = participante;
+    }
+
+    @Override
+    public String toString() {
+        return "Inscricao: " +
+                "id: " + id +
+                ", participante: " + participante;
     }
 }
