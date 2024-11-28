@@ -7,7 +7,7 @@ public class Main {
     private static final BancoInscricao crudInscricao = new BancoInscricao();
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        
+
         int opcao;
         while (true){
             System.out.println(opcoes());
@@ -81,13 +81,11 @@ public class Main {
         String nome = sc.next();
         System.out.println(crudEvento.buscarEventoPorNome(nome));
     }
-
     public static void removerEvento(){
         System.out.println("Escreva o ID do evento que deseja excluir:");
         int id = sc.nextInt();
         crudEvento.removerEvento(id);
     }
-
     public static void addParticipante(){
 
         System.out.println("Nome do participante:");
@@ -103,7 +101,6 @@ public class Main {
         System.out.println(crudParticipante.buscarparticipantePorEmail(email));
 
     }
-
     public static void removerParticipante(){
         System.out.println("Escreva o ID do participante que deseja remover:");
         int id = sc.nextInt();
@@ -122,7 +119,6 @@ public class Main {
         int id = sc.nextInt();
         crudInscricao.removerInscricao(id);
     }
-
     public static void buscarInscricaoPorNome(){
         System.out.println("Escreva o nome do participante que deseja ver as inscrições:");
         String nome = sc.next();
